@@ -1,6 +1,6 @@
 (function ($) {
   	//filepicker
-	filepicker.setKey('SET_FILEPICKER_API_KEY_HERE');
+	// filepicker.setKey('SET_FILEPICKER_API_KEY_HERE');
 	
 	function h(q) {
 		return function(c) {c.prependToLeadingLine((new Array(q+1)).join('#')+' ');};
@@ -58,7 +58,7 @@
 
 			$this.preview = function () {
 				$preview.html(markdown.toHTML($this.val()));
-				$.markdownEditor.filepicker.update();
+				// $.markdownEditor.filepicker.update();
 			}; $this.preview();
 
       preview = $this.preview;
@@ -79,7 +79,7 @@
 			});
 
 			ui.rebuildToolbar(toolbar);
-			$.markdownEditor.filepicker.clickHandlers();
+			// $.markdownEditor.filepicker.clickHandlers();
 		});
 	}
 
@@ -132,35 +132,35 @@
 	  source.hide();
 	  preview.addClass('span12').removeClass('span6');
 	}
-	$.markdownEditor.filepicker = {};
-	$.markdownEditor.filepicker.target = null;
-	$.markdownEditor.filepicker.clickHandlers = function(){
-	  $(".me-open").click(function(){
-  		filepicker.getFile(filepicker.MIMETYPES.TEXT,function(url, data) {
-    	  $.markdownEditor.filepicker.target = data;
-          $('title').prepend($.markdownEditor.filepicker.target.name + " ");
-          $('#filename').html($.markdownEditor.filepicker.target.name);
-  		  $.ajax({ url: url,
-  		          success: function(data){
-  		            $("#editor").html(data);
-  		            preview();
-  		          }});
-  		});
-      });
-      $(".me-savemd").click(function(){
-        filepicker.getUrlFromData($("#editor").val(), function(dataUrl){
-            filepicker.saveAs(dataUrl, 'text/plain', {'modal': true}, function(dataUrl) {console.log("save md as " + dataUrl);});
-           });
-  	  });
-      $(".me-savehtml").click(function(){
-        filepicker.getUrlFromData($("#preview").html(), function (dataUrl){
-            filepicker.saveAs(dataUrl, 'text/html', {'modal': true}, function(dataUrl) {console.log("save html as " + dataUrl);});
-        });
-  	  });
-    };
-	$.markdownEditor.filepicker.update = function(){
-      $('#stat').html(linecount() + " Pages " + wordcount() + " Words " + charcount() + " Characters");
-	};
+	// $.markdownEditor.filepicker = {};
+	// $.markdownEditor.filepicker.target = null;
+	// $.markdownEditor.filepicker.clickHandlers = function(){
+	//   $(".me-open").click(function(){
+ //  		filepicker.getFile(filepicker.MIMETYPES.TEXT,function(url, data) {
+ //    	  $.markdownEditor.filepicker.target = data;
+ //          $('title').prepend($.markdownEditor.filepicker.target.name + " ");
+ //          $('#filename').html($.markdownEditor.filepicker.target.name);
+ //  		  $.ajax({ url: url,
+ //  		          success: function(data){
+ //  		            $("#editor").html(data);
+ //  		            preview();
+ //  		          }});
+ //  		});
+ //      });
+ //      $(".me-savemd").click(function(){
+ //        filepicker.getUrlFromData($("#editor").val(), function(dataUrl){
+ //            filepicker.saveAs(dataUrl, 'text/plain', {'modal': true}, function(dataUrl) {console.log("save md as " + dataUrl);});
+ //           });
+ //  	  });
+ //      $(".me-savehtml").click(function(){
+ //        filepicker.getUrlFromData($("#preview").html(), function (dataUrl){
+ //            filepicker.saveAs(dataUrl, 'text/html', {'modal': true}, function(dataUrl) {console.log("save html as " + dataUrl);});
+ //        });
+ //  	  });
+ //    };
+	// $.markdownEditor.filepicker.update = function(){
+ //      $('#stat').html(linecount() + " Pages " + wordcount() + " Words " + charcount() + " Characters");
+	// };
   $.markdownEditor.ui.adjust = function(){
 	  $('#editor').height($(window).height()-160);
 	};

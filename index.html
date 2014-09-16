@@ -67,9 +67,22 @@ It can be simple like **Bold** or *Italics*, lists like above, headings, or even
 		<script type="text/javascript" src="static/js/markdowneditor.js"></script>
 		<script type="text/javascript">
 			$(function () {
+        $.markdownEditor.buttons.open.callback = function(){
+          alert('oopen');
+        }
+        $.markdownEditor.buttons.savemd.callback = function(){
+          alert('savemd');
+        }
+        $.markdownEditor.buttons.savehtml.callback = function(){
+          alert('savehtml');
+        }
+
+        $.markdownEditor['toolbars']['noFileAction'] = [['h1','h2','h3'], ['bold','italic'], ['link'], ['quote', 'code'], ['hr']];
+
 				$('#editor').markdownEditor({
 					toolbarLoc: $('#toolbar'),
-					toolbar: 'default',
+					// toolbar: 'noFileAction',
+          toolbar: 'default', 
 					preview: $('#preview')
 				});
 				
