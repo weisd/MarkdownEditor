@@ -1,5 +1,5 @@
 (function ($) {
-  //filepicker
+  	//filepicker
 	filepicker.setKey('SET_FILEPICKER_API_KEY_HERE');
 	
 	function h(q) {
